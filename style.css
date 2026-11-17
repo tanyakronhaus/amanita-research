@@ -88,7 +88,10 @@ body.dk #nav-foot{background:rgba(240,169,130,.16)}body.dk #slide-no{color:#f6c3
 .drawer-panel{position:absolute;top:calc(var(--navH) + 10px);right:20px;width:min(420px,calc(100vw - 32px));max-height:calc(100% - var(--navH) - var(--barH) - 24px);overflow:auto;padding:14px;border-radius:26px;
   background:rgba(255,254,250,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:0 30px 70px rgba(28,51,34,.25);transform:translateY(-12px) scale(.98);transform-origin:top right;transition:transform .3s var(--ease)}
 .drawer.open .drawer-panel{transform:none}
-.close-drawer{width:100%;border:0;border-radius:14px;padding:11px 14px;background:var(--forest);color:#fff;font-size:14px;font-weight:500;text-align:left;margin-bottom:6px}
+.drawer-head{position:sticky;top:-14px;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-14px -14px 4px;padding:14px 14px 10px 24px;background:rgba(255,254,250,.97);border-bottom:1px solid var(--line)}
+.drawer-head span{font-family:var(--f-d);font-weight:600;font-size:20px;color:var(--ink)}
+.close-drawer{flex:none;width:44px;height:44px;border:0;border-radius:50%;background:var(--forest);color:#fff;font-size:18px;line-height:1;display:grid;place-items:center;transition:transform .2s,background .2s}
+.close-drawer:hover{background:var(--red);transform:rotate(90deg)}
 #nav-menu .grp{font-family:var(--f-d);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);padding:12px 10px 6px}
 .nav-link{width:100%;display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:center;padding:6px 10px;border:0;border-radius:15px;background:transparent;text-align:left;font-size:15px;color:var(--ink2);transition:background .2s}
 .nav-link:hover{background:var(--red-light)}
@@ -243,11 +246,6 @@ body.deck .slide.off{visibility:visible;animation:leave .6s var(--ease) forwards
 .slide.on .molecule path{stroke-dasharray:200;animation:draw 3s .6s var(--ease) backwards}
 @keyframes draw{from{stroke-dashoffset:200}}
 @keyframes bob{50%{transform:translateY(-14px) rotate(3deg)}}
-.cover-chip{position:absolute;z-index:4;right:330px;bottom:40px;display:flex;align-items:center;gap:16px;padding:14px 22px 14px 14px;border-radius:22px;background:rgba(255,255,255,.95);color:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.3)}
-.slide.on .cover-chip{animation:pop .8s 1s var(--ease) backwards,bob 6s 2s ease-in-out infinite}
-.cover-chip .letter{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:var(--cta);color:#fff;font-family:var(--f-d);font-weight:600;font-size:28px}
-.cover-chip small{display:block;font-size:11px;letter-spacing:.14em;color:var(--muted);font-weight:600}
-.cover-chip strong{display:block;margin-top:2px;font-family:var(--f-d);font-weight:600;font-size:22px;font-style:italic}
 
 /* ── 02 Intro ── */
 .intro-lead{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:center}
@@ -263,9 +261,6 @@ body.deck .slide.off{visibility:visible;animation:leave .6s var(--ease) forwards
 .intro-photo{position:relative;margin:0;justify-self:center;width:420px;height:420px;border-radius:50%;overflow:visible;z-index:1}
 .intro-photo img{width:100%;height:100%;object-fit:cover;object-position:72% center;border-radius:50%;box-shadow:0 0 0 10px rgba(255,255,255,.7),0 30px 70px rgba(28,51,34,.28);transition:transform 1.2s var(--ease)}
 .intro-photo:hover img{transform:scale(1.04) rotate(-2deg)}
-.intro-photo figcaption{position:absolute;left:-30px;bottom:24px;display:flex;flex-direction:column;gap:2px;padding:12px 18px;border-radius:18px;background:rgba(255,255,255,.95);box-shadow:var(--shadow);animation:bob 6s ease-in-out infinite}
-.intro-photo figcaption span{font-family:var(--f-d);font-weight:600;font-size:20px;font-style:italic;color:var(--ink)}
-.intro-photo figcaption small{font-size:12px;letter-spacing:.06em;color:var(--muted)}
 .photo-orbit{position:absolute;right:0;top:50%;width:420px;height:420px;margin-top:-210px;pointer-events:none;z-index:0}
 .intro-lead>.photo-orbit{grid-column:2;grid-row:1;position:relative;right:auto;top:auto;margin:0;justify-self:center}
 .photo-orbit i{position:absolute;inset:-34px;border-radius:50%;border:1.5px dashed rgba(192,76,59,.3);animation:spin 50s linear infinite}
@@ -487,11 +482,9 @@ body.portrait .cover-image,body.portrait .orbit{grid-column:1;width:min(300px,72
 body.portrait .orbit .r2,body.portrait .orbit .s2{display:none}
 body.portrait .cover-title{font-size:clamp(46px,12vw,72px)}
 body.portrait .cover-description{font-size:17px}
-body.portrait .cover-chip{position:relative;right:auto;bottom:auto;grid-row:3;justify-self:start}
 body.portrait .molecule{width:130px;right:-20px;top:-30px}
 body.portrait .intro-photo,body.portrait .photo-orbit{width:min(300px,76vw);height:min(300px,76vw)}
 body.portrait .intro-lead>.intro-photo,body.portrait .intro-lead>.photo-orbit{grid-row:2;grid-column:1}
-body.portrait .intro-photo figcaption{left:0}
 body.portrait .intro-compare{grid-template-columns:1fr}
 body.portrait .intro-vs{justify-self:center}
 body.portrait .intro-foot{flex-direction:column;align-items:flex-start}
@@ -523,3 +516,15 @@ body:not(.ready) .slide.on [data-reveal]{animation:none}
 body.portrait .slide{scroll-margin-top:var(--navH)}
 body.portrait .slide-label{font-size:14px}
 body.portrait .slide-label::before{width:20px;height:20px}
+
+/* mobile header: Chapters + page counter on the left, logo on the right */
+body.portrait #top-controls{order:1;margin-left:0}
+body.portrait #mark{order:2;margin-left:auto}
+body.portrait #nav-foot{display:inline-flex}
+/* mobile chapters menu: full screen, X to close */
+body.portrait .drawer{background:transparent}
+body.portrait .drawer-panel{inset:0;top:0;right:0;width:100%;max-height:none;height:100%;border-radius:0;border:0;box-shadow:none;padding:14px max(18px,env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left));transform:translateY(16px);transition:transform .3s var(--ease)}
+body.portrait .drawer.open .drawer-panel{transform:none}
+body.portrait .drawer-head{margin:-14px -18px 6px;padding:calc(10px + env(safe-area-inset-top)) 18px 10px 24px}
+body.portrait .nav-link{font-size:16px;padding:8px 10px}
+body.menu-open{overflow:hidden}

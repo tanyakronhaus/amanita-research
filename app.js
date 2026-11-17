@@ -79,12 +79,12 @@ slides.forEach((s,i)=>{
   if(g!==grp){const h=document.createElement('div');h.className='caps grp';h.textContent=g;nav.append(h);grp=g;}
   const b=document.createElement('button');b.type='button';b.className='nav-link';
   b.innerHTML=`<span class="n">${pad(i+1)}</span><span>${s.dataset.label||'Chapter'}</span>`;
-  b.addEventListener('click',()=>{go(i);closeMenu();});nav.append(b);
+  b.addEventListener('click',()=>{closeMenu();go(i);});nav.append(b);
 });
 const navBtns=$$('#nav-menu .nav-link');
 const drawer=$('#mobile-drawer'),openBtn=$('#open-drawer');
-function openMenu(){drawer.classList.add('open');openBtn.setAttribute('aria-expanded','true');navBtns[current]?.scrollIntoView({block:'center'});}
-function closeMenu(){drawer.classList.remove('open');openBtn.setAttribute('aria-expanded','false');}
+function openMenu(){drawer.classList.add('open');document.body.classList.add('menu-open');openBtn.setAttribute('aria-expanded','true');navBtns[current]?.scrollIntoView({block:'center'});}
+function closeMenu(){drawer.classList.remove('open');document.body.classList.remove('menu-open');openBtn.setAttribute('aria-expanded','false');}
 openBtn.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
 $('#close-drawer').addEventListener('click',closeMenu);
 drawer.addEventListener('click',e=>{if(e.target===drawer)closeMenu();});
