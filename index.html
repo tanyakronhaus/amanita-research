@@ -4,13 +4,19 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#17261c">
 <meta name="description" content="Muscimol: The Untapped Potential of Neural Inhibition — an evidence-based interactive research presentation on fungal history, reversible brain inactivation, cross-regional information flow, and memory suppression.">
 <title>Muscimol · The Untapped Potential of Neural Inhibition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Heebo:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="progress"></div>
-<aside id="site-nav" aria-label="Presentation chapters"><a id="mark" href="#cover"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21c3-8 11-13 16-13s11 4 14 13H3Zm16 0v11m-9-11 6 11m14-11-8 11M9 21q10 4 21 0"/></svg><span>MUSCIMOL<br>RESEARCH REVIEW</span></a><nav id="nav-menu"></nav><div id="nav-foot"><span>17 NOV 2026</span><span id="slide-no">01 / 22</span></div></aside>
-<div id="top-controls"><button class="mobile-menu" id="open-drawer" aria-label="Open chapters">☰ &nbsp;Chapters</button><button id="back" aria-label="Previous chapter">↑</button><button id="forward" aria-label="Next chapter">↓</button><button id="full" aria-label="Fullscreen presentation">⤢ &nbsp;Fullscreen</button></div>
-<div class="drawer" id="mobile-drawer"><button class="close-drawer" id="close-drawer">✕ &nbsp;Close chapters</button><div id="mobile-menu"></div></div>
+<div id="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i><canvas id="spores"></canvas></div>
+<header id="site-nav" aria-label="Presentation chapters">
+ <a id="mark" href="#cover"><span class="breath" aria-hidden="true"><i></i><i></i><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21c3-8 11-13 16-13s11 4 14 13H3Zm16 0v11m-9-11 6 11m14-11-8 11M9 21q10 4 21 0"/></svg></span><span class="brand-t">MUSCIMOL<br>RESEARCH REVIEW</span></a>
+ <span class="sep" aria-hidden="true"></span><span class="chap" id="chap" aria-live="polite"></span>
+ <div id="top-controls"><button class="mobile-menu" id="open-drawer" aria-label="Open chapters" aria-expanded="false">☰ &nbsp;Chapters</button><button id="back" aria-label="Previous chapter">↑</button><span id="nav-foot"><span class="date">17 NOV 2026</span><span id="slide-no">01 / 22</span></span><button id="forward" aria-label="Next chapter">↓</button><button id="full" aria-label="Fullscreen presentation">⤢ &nbsp;Fullscreen</button></div>
+</header>
+<div class="drawer" id="mobile-drawer"><div class="drawer-panel"><button class="close-drawer" id="close-drawer">✕ &nbsp;Close chapters</button><nav id="nav-menu"></nav><div id="mobile-menu" hidden></div></div></div>
+<div class="rail" id="rail" aria-hidden="true"><div class="track" id="track"><div id="progress"></div><div class="blip" id="blip"></div></div></div>
 <main id="main">
 <!-- 01 -->
 <section class="slide" id="cover" data-label="Introduction" data-group="Introduction">
